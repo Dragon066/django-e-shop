@@ -2,6 +2,8 @@
 
 This project contains frontend & backend for online store, running on [Django Framework v5.0.7](https://github.com/django/django) in Python.
 
+![image](https://github.com/user-attachments/assets/553a2c38-2f04-4895-a6d8-dced890a117a)
+
 ## 💥 Features:
 
 - Registration and authorization using JWT
@@ -90,4 +92,5 @@ There is a list of available urls in this project:
   - [`/order/my_orders/`](http://127.0.0.1:8000/order/my_orders/) - list of user's orders
   - [`/order/client_orders/`](http://127.0.0.1:8000/order/client_orders/) - list of orders for user products
 - `/api/v1/` - API reference
-- [`/swagger/`](http://127.0.0.1:8000/swagger/) - documentation for API with Swagger (in [drf-yasg](https://github.com/axnsan12/drf-yasg/tree/master)) 
+- [`/swagger/`](http://127.0.0.1:8000/swagger/) - documentation for API with Swagger (in [drf-yasg](https://github.com/axnsan12/drf-yasg/tree/master))
+- [`/admin`](http://127.0.0.1:8000/admin/) - Django admin panel
