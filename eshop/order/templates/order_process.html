@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop | Заказы покупателей{% endblock %}
+
+{% block content %}
+<h1>Заказы покупателей</h1>
+
+{% if page_obj %}
+    <div class="orders">
+    {% for item in page_obj %}
+        <div class="div-order">
+            <h2>Заказ #{{ item.order.id }} от {{ item.order.created_at }}</h2>
+            <p>Товар: <a href="{{ item.product.get_absolute_url }}">{{ item.product }}</a></p>
+            <p>Покупатель: {{ item.order.user }}</p>
+            <p>Статус: {{ item.get_status_display }}</p>
+            <br>
+            <a href="{% url 'order:order_process_detail' item.id %}" class="blue-button">Открыть заказ</a>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% include 'pagination.html' with page=page_obj %}
+{% else %}
+    <div>
+        <p class="cart-empty">Для вас ещё нет заказов.</p>
+    </div>
+{% endif %}
+{% endblock %}

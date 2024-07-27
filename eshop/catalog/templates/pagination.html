@@ -1,0 +1,11 @@
+<div class="pagination">
+    <span class="step-links">
+        {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}&order={{ order|default:'name' }}&asc={{ asc|default:'1' }}">←</a>
+        {% endif %}
+        <span class="current">{{ page.number }}</span>
+        {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}&order={{ order|default:'name' }}&asc={{ asc|default:'1' }}">→</a>
+        {% endif %}
+    </span>
+</div>

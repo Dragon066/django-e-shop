@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+
+{% block title %}E-Shop | Заказ #{{ order.id }}{% endblock %}
+
+{% block content %}
+<h1>Заказ #{{ object.order.id }} от {{ object.order.created_at }}</h1>
+
+<p class="product-detail-features">
+    Клиент:
+</p>
+<p class="product-detail-value"><b>{{ object.order.user.first_name }} {{ object.order.user.last_name }}</b></p>
+<p class="product-detail-value"><b>E-mail</b>: {{ object.order.user.email }}</p>
+<p class="product-detail-value"><b>Телефон</b>: {{ object.order.phone }}</p>
+<p class="product-detail-value"><b>Адрес</b>: {{ object.order.address }}</p>
+<p class="product-detail-features">
+    Продукт:
+</p>
+<p class="product-detail-value"><a href="{{ object.product.get_absolute_url }}">{{ object.product.name }}</a> <span class="vertical-line"></span> <span class="price">{{ object.price }}</span> × {{ object.quantity }} шт. <span class="vertical-line"></span> <span class="price">{{ object.price|mul:object.quantity }}</span></p>
+
+<form method="post" class="form-change">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Обновить заказ" name="order_update" class="blue-button">
+</form> 
+
+{% include 'pagination.html' with page=page_obj %}
+{% endblock %}

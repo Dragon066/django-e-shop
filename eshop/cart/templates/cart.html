@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+
+{% block title %}E-Shop | Корзина{% endblock %}
+
+{% block content %}
+
+<h1>Корзина</h1>
+
+{% if object_list %}
+<div class="div-order">
+    <ul class="cart-list">
+        {% for item in object_list %}
+            <li><div class="cart-item"><a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a> <span class="vertical-line"></span> <span class="price">{{ item.product.price }}</span> × {{ item.quantity }} шт. <span class="vertical-line"></span> <span class="price">{{ item.product.price|mul:item.quantity }}</span> <a href="{% url 'cart:cart_detail' item.product.id %}" class="blue-button">Изменить</a> <form action="{% url 'cart:cart_delete' item.product.id %}" method="post">{% csrf_token %} <button type="submit">Удалить</button></form></div></li>
+        {% endfor %}
+    </ul>
+    <hr style="width: 100%; border: 1px dashed; color: lightgray;">
+    <p style="margin-bottom: 20px; padding: 10px; font-size: 18px;">Общая стоимость: <span class="price">{{ summ }}</span></p>
+    <a href="{% url 'order:order_create' %}" class="blue-button">Оформить заказ</a>
+</div>
+{% else %}
+<div>
+<p class="cart-empty">Ваша корзина пуста. Перейдите в каталог, чтобы положить товар в корзину:</p>
+<a href="{% url 'catalog:product_list' %}" class="blue-button">Каталог</a>
+</div>
+{% endif %}
+
+{% endblock %}

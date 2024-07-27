@@ -1,0 +1,443 @@
+[
+{
+  "model": "catalog.productcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Детям"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Для дома"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Электроника"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Одежда"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Еда"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 6,
+  "fields": {
+    "name": "Гигиена"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 7,
+  "fields": {
+    "name": "Мебель"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 8,
+  "fields": {
+    "name": "Канцтовары"
+  }
+},
+{
+  "model": "catalog.productcategory",
+  "pk": 9,
+  "fields": {
+    "name": "Бытовая химия"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "name": "Ручка",
+    "description": "Главное - пишет, остальное приживётся.",
+    "price": "0.69",
+    "category": 8,
+    "quantity": 1050,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "name": "Телефон",
+    "description": "Мощный, модный, звонить можно.",
+    "price": "349.99",
+    "category": 3,
+    "quantity": 48,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "name": "Футболка",
+    "description": "Красивая, молодёжная, девчонки будут падать.",
+    "price": "35.99",
+    "category": 4,
+    "quantity": 19,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "name": "Ковёр",
+    "description": "Добротный, из бедной овечки.",
+    "price": "38.00",
+    "category": 2,
+    "quantity": 4,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 5,
+  "fields": {
+    "name": "Горшок",
+    "description": "Достаточно прочный, с узором.",
+    "price": "2.99",
+    "category": 2,
+    "quantity": 540,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 6,
+  "fields": {
+    "name": "Пуфик",
+    "description": "Мягкий и удобный, как у бабушки.",
+    "price": "45.49",
+    "category": 7,
+    "quantity": 40,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 7,
+  "fields": {
+    "name": "Шкаф",
+    "description": "Небольшой, для полутораметровых людей в самый раз.",
+    "price": "58.99",
+    "category": 8,
+    "quantity": 20,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 8,
+  "fields": {
+    "name": "Игрушка",
+    "description": "Красочная, для непосед.",
+    "price": "6.99",
+    "category": 1,
+    "quantity": 75,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 9,
+  "fields": {
+    "name": "Соска",
+    "description": "Крепкая, не прокусишь.",
+    "price": "4.00",
+    "category": 1,
+    "quantity": 312,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 10,
+  "fields": {
+    "name": "Ноутбук",
+    "description": "Производительный, для создания Django-сайтов!",
+    "price": "499.99",
+    "category": 3,
+    "quantity": 32,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 11,
+  "fields": {
+    "name": "Пальто",
+    "description": "Старое, но все ещё модное.",
+    "price": "39.99",
+    "category": 4,
+    "quantity": 5,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 12,
+  "fields": {
+    "name": "Китайские сладости",
+    "description": "Вкусные, немного острые.",
+    "price": "5.99",
+    "category": 5,
+    "quantity": 100,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 13,
+  "fields": {
+    "name": "Консервы",
+    "description": "Рыбные, говяжьи, свиные - на любой вкус!",
+    "price": "1.39",
+    "category": 5,
+    "quantity": 432,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 14,
+  "fields": {
+    "name": "Шампунь",
+    "description": "Такой классный, что все твои подруги обзавидуются.",
+    "price": "30.00",
+    "category": 6,
+    "quantity": 51,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 15,
+  "fields": {
+    "name": "Гель",
+    "description": "Большой, хватит на всю семью.",
+    "price": "11.29",
+    "category": 6,
+    "quantity": 250,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 16,
+  "fields": {
+    "name": "Линейка",
+    "description": "Металлическая, можно резать колбасу.",
+    "price": "2.99",
+    "category": 8,
+    "quantity": 99,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 17,
+  "fields": {
+    "name": "Детская коляска",
+    "description": "Модная, все мамочки будут вам завидовать.",
+    "price": "159.49",
+    "category": 1,
+    "quantity": 0,
+    "available": false,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 18,
+  "fields": {
+    "name": "Маркеры",
+    "description": "Яркие.",
+    "price": "5.99",
+    "category": 8,
+    "quantity": 40,
+    "available": false,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 19,
+  "fields": {
+    "name": "Туалетный утёнок",
+    "description": "Помоет унитаз за вас.",
+    "price": "8.00",
+    "category": 9,
+    "quantity": 361,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 20,
+  "fields": {
+    "name": "Хлорка",
+    "description": "Не для бассейнов!",
+    "price": "20.89",
+    "category": 9,
+    "quantity": 100,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 21,
+  "fields": {
+    "name": "Игровое кресло",
+    "description": "Крепкое и комфортное, из кожи.",
+    "price": "110.99",
+    "category": 7,
+    "quantity": 0,
+    "available": false,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 22,
+  "fields": {
+    "name": "Ёршик",
+    "description": "Самый простой, но достаточно эффективный.",
+    "price": "1.99",
+    "category": 2,
+    "quantity": 569,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 23,
+  "fields": {
+    "name": "Айпад",
+    "description": "Производительность. Безопасность. Ваш.",
+    "price": "899.99",
+    "category": 3,
+    "quantity": 14,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 24,
+  "fields": {
+    "name": "Мармеладные мишки",
+    "description": "Целая коробка вкусных мармеладок!",
+    "price": "6.79",
+    "category": 5,
+    "quantity": 98,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 25,
+  "fields": {
+    "name": "Зубная щётка",
+    "description": "От известного бренда.",
+    "price": "4.59",
+    "category": 6,
+    "quantity": 150,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 26,
+  "fields": {
+    "name": "Трусы",
+    "description": "Набор мужских солидных трусов.",
+    "price": "13.49",
+    "category": 4,
+    "quantity": 56,
+    "available": true,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 27,
+  "fields": {
+    "name": "Шляпа",
+    "description": "Из Турции.",
+    "price": "14.99",
+    "category": 4,
+    "quantity": 0,
+    "available": false,
+    "picture": "no-photo.jpg",
+    "owner": 1
+  }
+}
+]

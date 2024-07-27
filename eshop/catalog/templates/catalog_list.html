@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop{% endblock %}
+
+{% block content %}
+    <div class="product-list-header">
+        <div class="product-list-title">
+            <h1>Каталог товаров</h1>
+        </div>
+        <div class="sort-by">
+            <p>Сортировать по:</p>
+            <a href="{% url 'catalog:product_list' %}?order=name&asc={{ asc }}" class="{% if order == 'name' %}sort-by-selected{% endif%}">названию</a>
+            <a href="{% url 'catalog:product_list' %}?order=price&asc={{ asc }}" class="{% if order == 'price' %}sort-by-selected{% endif%}">цене</a>
+            <a href="{% url 'catalog:product_list' %}?order={{ order }}&asc={% if asc == '1' %}0{% else %}1{% endif%}">{% if asc == '1' %}↑{% else %}↓{% endif%}</a>
+        </div>
+    </div>
+    {% if page_obj %}
+    <div class="product-list">
+        {% for product in page_obj %}
+        <div class="product-card">
+            <div class="product-card-top">
+                <a href="{{ product.get_absolute_url }}?page={{ page_obj.number }}&order={{ order }}&asc={{ asc }}">
+                    <div class="product-card-link">
+                        <div class="product-card-picture">
+                            {% if product.picture %}
+                                <img src="{{ product.picture.url }}" alt="{{ product.picture.name }}" class="product-picture">
+                            {% endif %}
+                        </div>
+                        <div class="product-card-name">
+                            <p class="product-name">{{ product.name }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-card-bottom">
+                {% if product in cart %}
+                <a href="{% url 'cart:cart_detail' product.id %}" style="background-color: lightgreen">В корзине</a>
+                {% else %}
+                    <a href="{% url 'cart:cart_detail' product.id %}">В корзину</a>
+                {% endif %}
+                <p class="price">{{ product.price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% include 'pagination.html' with page=page_obj order=order asc=asc %}
+    </div>
+    {% else %}
+        <p class="cart-empty">В данный момент каталог пуст.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}E-shop | Регистрация{% endblock %}
+
+{% block content %}
+
+<h1>Регистрация</h1>
+
+{% if form.errors %}
+    <p class="errorlist">Проверьте правильность введённых данных</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+        <p>Недостаточно прав, чтобы увидеть эту страницу</p>
+    {% else %}
+        <p>Залогиньтесь, чтобы увидеть эту страницу</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'user:registration' %}" class="form-change">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <input type="submit" value="Регистрация" class="blue-button">
+    <input type="hidden" name="next" value="{{ next }}">
+    <p>Уже есть аккаунт? <a href="{% url 'user:login' %}">Войдите</a></p>
+</form>
+
+
+{% endblock %}

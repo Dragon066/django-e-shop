@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop | Товар {{ object }}{% endblock %}
+
+{% block content %}
+
+{% if object %}
+    <h1>Изменение товара: {{ object }} (#{{ object.pk }})</h1>
+{% else %}
+    <h1>Добавление нового товара</h1>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data" class="form-change">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="{% if object %}Изменить{% else %}Создать{% endif %}" class="blue-button">
+</form> 
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop | Мои товары{% endblock %}
+
+{% block content %}
+    <div class="product-list-header">
+        <div class="product-list-title">
+            <h1>Мои товары</h1>
+        </div>
+        <div class="create-new-product">
+            <a href="{% url 'catalog:product_form' %}" class="blue-button">Создать товар</a>
+        </div>
+        <div class="sort-by">
+            <p>Сортировать по:</p>
+            <a href="{% url 'catalog:my_products' %}?order=name&asc={{ asc }}" class="{% if order == 'name' %}sort-by-selected{% endif%}">названию</a>
+            <a href="{% url 'catalog:my_products' %}?order=price&asc={{ asc }}" class="{% if order == 'price' %}sort-by-selected{% endif%}">цене</a>
+            <a href="{% url 'catalog:my_products' %}?order={{ order }}&asc={% if asc == '1' %}0{% else %}1{% endif%}">{% if asc == '1' %}↑{% else %}↓{% endif%}</a>
+        </div>
+    </div>
+    {% if page_obj %}
+        <div class="product-list">
+            {% for product in page_obj %}
+            <div class="product-card">
+                <div class="product-card-top">
+                    <a href="{{ product.get_absolute_url }}?page={{ page_obj.number }}&order={{ order }}&asc={{ asc }}">
+                        <div class="product-card-link">
+                            <div class="product-card-picture">
+                                {% if product.picture %}
+                                    <img src="{{ product.picture.url }}" alt="{{ product.picture.name }}" class="product-picture">
+                                {% endif %}
+                            </div>
+                            <div class="product-card-name">
+                                <p class="product-name">{{ product.name }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product-card-middle">
+                    <p>Количество: {{ product.quantity }}</p>
+                    <p>Статус: {% if product.available %}<span style="color: green">На площадке</span>{% else %}<span style="color: red">Убран</span>{% endif %}</p>
+                </div>
+                <div class="product-card-bottom">
+                    <a href="{% url 'catalog:product_update' product.pk %}">Редактировать</a>
+                    <p class="price">{{ product.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% include 'pagination.html' with page=page_obj order=order asc=asc %}
+        </div>
+    {% else %}
+        <p class="cart-empty">Товары не найдены. Создайте новый с помощью кнопки выше "Создать товар".</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}E-shop | Личный кабинет{% endblock %}
+
+{% block content %}
+    <h1>Личный кабинет</h1>
+    <table class="table-contacts">
+        <tr>
+            <td><b>Имя</b></td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td><b>Фамилия</b></td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <td><b>E-mail</b></td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+    <div class="blue-buttons">
+        <a href="{% url 'cart:cart' %}" class="blue-button">Моя корзина</a>
+        <a href="{% url 'order:my_orders' %}" class="blue-button">Мои заказы</a>
+        <a href="{% url 'catalog:my_products' %}" class="blue-button">Мои товары</a>
+    </div>
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="profile-logout">Выйти из аккаунта...</button>
+    </form>
+{% endblock %}

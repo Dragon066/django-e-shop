@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop | Мои заказы{% endblock %}
+
+{% block content %}
+<h1>Мои заказы</h1>
+
+{% if page_obj %}
+    <div class="orders">
+    {% for order in page_obj %}
+        <div class="div-order">
+            <h2>Заказ #{{ order.id }} от {{ order.created_at }}</h2>
+            <p>Сумма заказа: <span class="price">{{ order.total_amount }}</span></p>
+            <br>
+            <a href="{% url 'order:order_detail' order.id %}" class="blue-button">Подробнее</a>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% include 'pagination.html' with page=page_obj %}
+{% else %}
+    <div>
+        <p class="cart-empty">У вас нет заказов.</p>
+        <a href="{% url 'catalog:product_list' %}" class="blue-button">Перейти к каталогу</a>
+        <a href="{% url 'cart:cart' %}" class="blue-button">Перейти в корзину</a>
+    </div>
+{% endif %}
+{% endblock %}

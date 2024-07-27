@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Shop | Корзина{% endblock %}
+
+{% block content %}
+
+<h1>Добавление товара в корзину: {{ product.name }}</h1>
+
+<div class="product-detail">
+    <div class="product-detail-picture">
+        {% if product.picture %}
+            <img src="{{ product.picture.url }}" alt="{{ product.picture.name }}" class="product-picture">
+        {% endif %}
+    </div>
+    <div class="product-detail-info">
+        <div class="product-detail-description">
+            <p class="product-detail-features">
+                Продавец
+            </p>
+            <p class="product-detail-value">
+                {{ product.owner.first_name }} {{ product.owner.last_name }}, {{ product.owner.email }}
+            </p>
+            <p class="product-detail-features">
+                Цена
+            </p>
+            <p class="product-detail-value">${{ product.price }} за шт.</p>
+            <p class="product-detail-features">
+                Количество на складе
+            </p>
+            <p class="product-detail-value">{{ product.quantity }}</p>
+        </div>
+        <div class="product-detail-order">
+            <form method="post" class="form-change">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                {% if exists %}
+                    <input type="submit" value="Изменить" name="to_cart" class="blue-button">
+                    <input type="submit" value="Удалить" name="delete_cart" class="blue-button">
+                {% else %}
+                    <input type="submit" value="В корзину" name="to_cart" class="blue-button">
+                {% endif %}
+            </form> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

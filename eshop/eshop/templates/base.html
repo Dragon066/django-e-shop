@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+
+<body>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="sidemenu"> 
+        <p class="sidemenu-title"><a href="{% url 'catalog:product_list' %}">E-Shop</a></p> 
+        <ul>
+            <li><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+        <div class="account">
+            {% if request.user.is_authenticated %}
+            <p class="account-name">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+            <hr style="width: 100%; border: 1px dashed; color: lightgray;">
+            <ul>
+                <li><a href="{% url 'accounts:profile' %}">Личный кабинет</a></li>
+                <li class="cart"><a href="{% url 'cart:cart' %}">Корзина</a></li>
+                <li><a href="{% url 'order:my_orders' %}">Мои заказы</a></li>
+                <hr style="width: 100%; border: 1px dashed; color: lightgray;">
+                <li><a href="{% url 'catalog:my_products' %}">Мои товары</a></li>
+                <li><a href="{% url 'order:order_process' %}">Заказы клиентов</a></li>
+                <hr style="width: 100%; border: 1px dashed; color: lightgray;">
+                <li>
+                    <form action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Выйти</button>
+                    </form>
+            </li>
+            </ul>
+            {% else %}
+            <ul>
+                <li><a href="{% url 'accounts:login' %}">Войти</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

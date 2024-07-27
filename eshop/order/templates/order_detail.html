@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+
+{% block title %}E-Shop | Заказ #{{ order.id }}{% endblock %}
+
+{% block content %}
+<h1>Заказ #{{ order.id }} от {{ order.created_at }}</h1>
+
+<ul>
+    <div class="div-order">
+        <ul class="cart-list">
+            {% for item in products %}
+                <li><a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a> <span class="vertical-line"></span> <span class="price">{{ item.product.price }}</span> × {{ item.quantity }} шт. <span class="vertical-line"></span> <span class="price">{{ item.product.price|mul:item.quantity }}</span> <span class="vertical-line"></span> Статус: {{ item.get_status_display }}</li>
+            {% endfor %}
+        </ul>
+        <hr style="width: 100%; border: 1px dashed; color: lightgray;">
+        <p style="margin-bottom: 20px; padding: 10px; font-size: 18px;">Общая стоимость: <span class="price">{{ order.total_amount }}</span></p>
+    </div>
+</ul>
+
+<p class="product-detail-features">
+    Указанные данные:
+</p>
+<p class="product-detail-value"><b>E-mail</b>: {{ order.user.email }}</p>
+<p class="product-detail-value"><b>Телефон</b>: {{ order.phone }}</p>
+<p class="product-detail-value"><b>Адрес</b>: {{ order.address }}</p>
+
+{% endblock %}
