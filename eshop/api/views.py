@@ -1,8 +1,9 @@
-from django.shortcuts import render
 from catalog.models import Product
+from django.shortcuts import render
 from rest_framework import generics, viewsets
-from .serializers import ProductSerializer, ProductEditSerializer
 from rest_framework.permissions import IsAuthenticated
+
+from .serializers import ProductEditSerializer, ProductSerializer
 
 
 class ProductModelViewSet(viewsets.ReadOnlyModelViewSet):

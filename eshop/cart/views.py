@@ -1,10 +1,11 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.views.generic import ListView, FormView, View
-from .models import Cart
-from .forms import CartForm
 from catalog.models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.views.generic import FormView, ListView, View
+
+from .forms import CartForm
+from .models import Cart
 
 
 class CartView(LoginRequiredMixin, ListView):

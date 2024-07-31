@@ -1,5 +1,6 @@
-from django.urls import path, include
-from .views import ProfileView, LoginFormView, RegistrationFormView, LogoutView
+from django.urls import include, path
+
+from .views import LoginFormView, LogoutView, ProfileView, RegistrationFormView
 
 app_name = "user"
 

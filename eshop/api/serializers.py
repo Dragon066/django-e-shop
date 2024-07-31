@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from catalog.models import Product
+from rest_framework import serializers
 from user.models import User
 
 

@@ -1,15 +1,17 @@
-from django.contrib import admin
-from django.contrib.admin.sites import AdminSite
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+import datetime as dt
+
 import jwt
 from django.conf import settings
-from .models import User
-from django.contrib.auth.views import LoginView
-import datetime as dt
+from django.contrib import admin
+from django.contrib.admin.sites import AdminSite
 from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.utils.translation import gettext as _
+
 from .jwt import get_access_token, get_refresh_token, tokens_to_response
+from .models import User
 
 
 class JWTLoginView(LoginView):
@@ -69,9 +71,9 @@ admin_site = JWTAdminSite(name="JWTAdmin")
 
 
 from django import forms
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.models import Group
 
 
 class UserCreationForm(forms.ModelForm):

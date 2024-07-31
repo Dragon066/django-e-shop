@@ -1,9 +1,11 @@
+import datetime as dt
+
 import jwt
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.utils.deprecation import MiddlewareMixin
 from django.contrib.auth.models import AnonymousUser
-import datetime as dt
+from django.utils.deprecation import MiddlewareMixin
+
 from .jwt import get_access_token, tokens_to_response
 
 User = get_user_model()

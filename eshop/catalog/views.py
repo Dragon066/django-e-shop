@@ -1,18 +1,20 @@
 from typing import Any
+
+from cart.models import Cart
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import (
-    ListView,
     DetailView,
     FormView,
+    ListView,
     TemplateView,
     UpdateView,
 )
-from .models import Product
-from cart.models import Cart
+
 from .forms import ProductForm
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import Http404
+from .models import Product
 
 
 class ProductListView(ListView):

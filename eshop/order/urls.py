@@ -1,10 +1,11 @@
-from django.urls import path, include
+from django.urls import include, path
+
 from .views import (
     MyOrdersView,
     OrderCreateView,
     OrderDetailView,
-    OrderProcessView,
     OrderProcessDetailView,
+    OrderProcessView,
 )
 
 app_name = "order"

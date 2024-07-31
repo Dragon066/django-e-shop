@@ -1,7 +1,7 @@
-from django.db import models
-from user.models import User
 from catalog.models import Product
 from django.core.validators import RegexValidator
+from django.db import models
+from user.models import User
 
 
 class Order(models.Model):

@@ -1,5 +1,5 @@
-from django import forms
 from catalog.models import Product
+from django import forms
 
 
 class CartForm(forms.Form):

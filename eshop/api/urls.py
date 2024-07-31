@@ -1,11 +1,12 @@
 from django.urls import path
-from .views import ProductModelViewSet, ProductModelEditViewSet
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
     TokenVerifyView,
 )
+
+from .views import ProductModelEditViewSet, ProductModelViewSet
 
 app_name = "api"
 
