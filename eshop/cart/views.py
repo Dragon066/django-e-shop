@@ -43,7 +43,7 @@ class CartFormView(LoginRequiredMixin, FormView):
                 .first()
                 .quantity
             )
-        except:
+        except Exception:
             quantity = 1
         initial["quantity"] = quantity
         return initial
