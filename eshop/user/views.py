@@ -1,11 +1,7 @@
-import datetime as dt
 
-import jwt
-from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.views.generic import FormView, TemplateView, View
 
 from .forms import LoginForm, RegistrationForm

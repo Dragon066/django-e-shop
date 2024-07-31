@@ -1,7 +1,6 @@
 from catalog.models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.views.generic import FormView, ListView, View
 
 from .forms import CartForm

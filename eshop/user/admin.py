@@ -1,12 +1,8 @@
-import datetime as dt
 
-import jwt
-from django.conf import settings
-from django.contrib import admin
 from django.contrib.admin.sites import AdminSite
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
@@ -40,7 +36,6 @@ class JWTAdminSite(AdminSite):
         # it cannot import models from other applications at the module level,
         # and django.contrib.admin.forms eventually imports User.
         from django.contrib.admin.forms import AdminAuthenticationForm
-        from django.contrib.auth.views import LoginView
 
         context = {
             **self.each_context(request),
@@ -73,7 +68,6 @@ admin_site = JWTAdminSite(name="JWTAdmin")
 from django import forms
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.contrib.auth.models import Group
 
 
 class UserCreationForm(forms.ModelForm):

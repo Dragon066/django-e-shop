@@ -2,7 +2,6 @@ from cart.models import Cart
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import BadRequest
 from django.db import transaction
-from django.shortcuts import render
 from django.views.generic import FormView, ListView, TemplateView, UpdateView
 
 from .forms import OrderForm
