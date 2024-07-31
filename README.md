@@ -1,6 +1,6 @@
 # E-shop on Django
 
-This project contains frontend & backend for online store, running on [Django Framework v5.0.7](https://github.com/django/django) in Python.
+This project contains frontend & backend for online store, running on [Django Framework v5.0.7](https://github.com/django/django) in Python v3.12.
 
 ![image](https://github.com/user-attachments/assets/553a2c38-2f04-4895-a6d8-dced890a117a)
 
@@ -26,6 +26,8 @@ Move to the repository directory:
 
 > #### 2. Create virtual environment and install required dependencies
 
+##### Using venv + pip
+
 Create virtual environment (*Note: here and further, if you are on a Linux, use `python3` instead of `python`*):
 
     python -m venv venv
@@ -37,6 +39,16 @@ Activate just created environment (*Note for Linux: `source .\venv\Scripts\activ
 Install all required dependencies that are written in `requirements.txt`:
 
     pip install -r requirements.txt
+
+##### Using Poetry
+
+Install dependencies via [Poetry](https://python-poetry.org/docs/):
+
+    poetry install
+
+Initialize & activate virtual environment:
+
+    poetry shell
 
 > #### 3. Make migrations
 
