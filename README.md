@@ -1,4 +1,4 @@
-# E-shop in Django
+# E-shop on Django
 
 This project contains frontend & backend for online store, running on [Django Framework v5.0.7](https://github.com/django/django) in Python.
 
