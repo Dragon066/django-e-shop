@@ -15,10 +15,14 @@ from .jwt import get_access_token, get_refresh_token, tokens_to_response
 class JWTLoginView(LoginView):
     def form_valid(self, form):
         user = form.get_user()
-        response = tokens_to_response(HttpResponseRedirect(self.get_success_url()), get_access_token(user), get_refresh_token(user))
+        response = tokens_to_response(
+            HttpResponseRedirect(self.get_success_url()),
+            get_access_token(user),
+            get_refresh_token(user),
+        )
 
         return response
-    
+
 
 class JWTAdminSite(AdminSite):
     def login(self, request, extra_context=None):
@@ -47,7 +51,9 @@ class JWTAdminSite(AdminSite):
             REDIRECT_FIELD_NAME not in request.GET
             and REDIRECT_FIELD_NAME not in request.POST
         ):
-            context[REDIRECT_FIELD_NAME] = reverse("admin:index", current_app=self.name)
+            context[REDIRECT_FIELD_NAME] = reverse(
+                "admin:index", current_app=self.name
+            )
         context.update(extra_context or {})
 
         defaults = {
@@ -59,7 +65,7 @@ class JWTAdminSite(AdminSite):
         return JWTLoginView.as_view(**defaults)(request)
 
 
-admin_site = JWTAdminSite(name='JWTAdmin')
+admin_site = JWTAdminSite(name="JWTAdmin")
 
 
 from django import forms
@@ -71,12 +77,15 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Password confirmation", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name')
+        fields = ("email", "first_name", "last_name")
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -98,11 +107,19 @@ class UserChangeForm(forms.ModelForm):
     the user, but replaces the password field with admin's
     password hash display field.
     """
+
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'first_name', 'last_name', 'is_active', 'is_staff')
+        fields = (
+            "email",
+            "password",
+            "first_name",
+            "last_name",
+            "is_active",
+            "is_staff",
+        )
 
     def clean_password(self):
         return self.initial["password"]
@@ -112,21 +129,30 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    list_display = ("email", "first_name", "last_name", "is_staff")
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Персональаня информация', {'fields': ('first_name', 'last_name')}),
-        ('Права', {'fields': ('is_staff',)}),
+        (None, {"fields": ("email", "password")}),
+        ("Персональаня информация", {"fields": ("first_name", "last_name")}),
+        ("Права", {"fields": ("is_staff",)}),
     )
 
     add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'first_name', 'last_name', 'password1', 'password2')}
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "password1",
+                    "password2",
+                ),
+            },
         ),
     )
-    search_fields = ('email',)
-    ordering = ('email',)
+    search_fields = ("email",)
+    ordering = ("email",)
     filter_horizontal = ()
 
 
