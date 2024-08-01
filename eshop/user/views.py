@@ -1,11 +1,15 @@
-
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, TemplateView, View
 
 from .forms import LoginForm, RegistrationForm
-from .jwt import clear_tokens, get_access_token, get_refresh_token, tokens_to_response
+from .jwt import (
+    clear_tokens,
+    get_access_token,
+    get_refresh_token,
+    tokens_to_response,
+)
 from .models import User
 
 
