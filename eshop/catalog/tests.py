@@ -35,11 +35,11 @@ class CatalogLoginRequiredTest(TestCase):
 class CatalogViewsTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        User.objects.create(
+        User.objects.create_user(
             email="test1@user.com",
             first_name="test1",
             last_name="user",
-            password="123",
+            password="difficult_password_123",
         )
 
         Product.objects.create(

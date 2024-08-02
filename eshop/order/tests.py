@@ -50,11 +50,11 @@ class OrderLoginRequiredTest(TestCase):
 class OrderViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        user = User.objects.create(
+        user = User.objects.create_user(
             email="test1@user.com",
             first_name="test1",
             last_name="user",
-            password="123",
+            password="difficult_password_123",
         )
 
         product = Product.objects.create(
