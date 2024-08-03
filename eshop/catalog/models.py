@@ -4,6 +4,10 @@ from user.models import User
 
 
 class ProductCategory(models.Model):
+    """
+    Model representing a category of the products.
+    """
+
     name = models.CharField(max_length=255, verbose_name="Название")
 
     def __str__(self):
@@ -11,6 +15,10 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
+    """
+    Model representing a product.
+    """
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255, verbose_name="Наименование")
     description = models.TextField(default=None, verbose_name="Описание")

@@ -16,6 +16,10 @@ from .models import Product
 
 
 class ProductListView(ListView):
+    """
+    List of all available products.
+    """
+
     queryset = Product.objects.filter(available=True)
     template_name = "catalog_list.html"
     paginate_by = 10
@@ -47,6 +51,10 @@ class ProductListView(ListView):
 
 
 class ProductDetailView(DetailView):
+    """
+    View for displaying a single product in detail.
+    """
+
     model = Product
     template_name = "product_detail.html"
     context_object_name = "product"
@@ -70,10 +78,20 @@ class ProductDetailView(DetailView):
 
 
 class ContactsView(TemplateView):
+    """
+    View for displaying contact information.
+    """
+
     template_name = "contacts.html"
 
 
 class ProductFormView(LoginRequiredMixin, FormView):
+    """
+    Form view for creating a new product.
+
+    Login required.
+    """
+
     template_name = "create_product.html"
     form_class = ProductForm
     success_url = "/catalog/my_products/"
@@ -89,6 +107,12 @@ class ProductFormView(LoginRequiredMixin, FormView):
 
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    Update view for editing an existing product.
+
+    Login required.
+    """
+
     model = Product
     fields = (
         "name",
@@ -104,6 +128,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ProductUserListView(LoginRequiredMixin, ListView):
+    """
+    List of products owned by the current user.
+
+    Login required.
+    """
+
     queryset = Product.objects.all()
     template_name = "my_products.html"
     paginate_by = 10
