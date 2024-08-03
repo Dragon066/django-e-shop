@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Admin &#8212; Django-e-shop  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="JWT backend" href="user_jwt.html" />
+    <link rel="prev" title="Models" href="user_models.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-user.admin">
+<span id="admin"></span><h1>Admin<a class="headerlink" href="#module-user.admin" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.admin.JWTAdminSite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.admin.</span></span><span class="sig-name descname"><span class="pre">JWTAdminSite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'admin'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.JWTAdminSite" title="Link to this definition">¶</a></dt>
+<dd><p>Custom admin site for JWT authentication.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.admin.JWTAdminSite.login">
+<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.JWTAdminSite.login" title="Link to this definition">¶</a></dt>
+<dd><p>Display the login form for the given HttpRequest.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.admin.JWTLoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.admin.</span></span><span class="sig-name descname"><span class="pre">JWTLoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.JWTLoginView" title="Link to this definition">¶</a></dt>
+<dd><p>Custom login view for JWT authentication.</p>
+<p>Used for JWTAdminSite.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.admin.JWTLoginView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.JWTLoginView.form_valid" title="Link to this definition">¶</a></dt>
+<dd><p>Return the response with JWT tokens.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>form: A valid form object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponseRedirect: The response with JWT tokens,
+redirects to success url.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.admin.UserAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.admin.</span></span><span class="sig-name descname"><span class="pre">UserAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserAdmin" title="Link to this definition">¶</a></dt>
+<dd><p>Custom user admin for JWT authentication.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.add_fieldsets">
+<span class="sig-name descname"><span class="pre">add_fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((None,</span> <span class="pre">{'classes':</span> <span class="pre">('wide',),</span> <span class="pre">'fields':</span> <span class="pre">('email',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'password1',</span> <span class="pre">'password2')}),)</span></em><a class="headerlink" href="#user.admin.UserAdmin.add_fieldsets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.add_form">
+<span class="sig-name descname"><span class="pre">add_form</span></span><a class="headerlink" href="#user.admin.UserAdmin.add_form" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.admin.UserCreationForm" title="user.admin.UserCreationForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.filter_horizontal">
+<span class="sig-name descname"><span class="pre">filter_horizontal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#user.admin.UserAdmin.filter_horizontal" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.form">
+<span class="sig-name descname"><span class="pre">form</span></span><a class="headerlink" href="#user.admin.UserAdmin.form" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.admin.UserChangeForm" title="user.admin.UserChangeForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('email',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'is_staff')</span></em><a class="headerlink" href="#user.admin.UserAdmin.list_display" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#user.admin.UserAdmin.media" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.ordering">
+<span class="sig-name descname"><span class="pre">ordering</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('email',)</span></em><a class="headerlink" href="#user.admin.UserAdmin.ordering" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.admin.UserAdmin.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('email',)</span></em><a class="headerlink" href="#user.admin.UserAdmin.search_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.admin.UserChangeForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.admin.</span></span><span class="sig-name descname"><span class="pre">UserChangeForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserChangeForm" title="Link to this definition">¶</a></dt>
+<dd><p>A form for updating users. Includes all the fields on
+the user, but replaces the password field with admin’s
+password hash display field.</p>
+<p><strong>Form fields:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: E-mail (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.EmailField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>: Password (<code class="xref py py-class docutils literal notranslate"><span class="pre">ReadOnlyPasswordHashField</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: Имя (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code>: Фамилия (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_active</span></code>: Активный (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_staff</span></code>: Администрация (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.admin.UserChangeForm.clean_password">
+<span class="sig-name descname"><span class="pre">clean_password</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserChangeForm.clean_password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="user.admin.UserChangeForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#user.admin.UserChangeForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.admin.UserCreationForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.admin.</span></span><span class="sig-name descname"><span class="pre">UserCreationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserCreationForm" title="Link to this definition">¶</a></dt>
+<dd><p>A form for creating new users. Includes all the required
+fields, plus a repeated password.</p>
+<p><strong>Form fields:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: E-mail (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.EmailField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: Имя (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code>: Фамилия (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password1</span></code>: Password (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password2</span></code>: Password confirmation (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a>)</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.admin.UserCreationForm.clean_password2">
+<span class="sig-name descname"><span class="pre">clean_password2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserCreationForm.clean_password2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="user.admin.UserCreationForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#user.admin.UserCreationForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.admin.UserCreationForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.admin.UserCreationForm.save" title="Link to this definition">¶</a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Django-e-shop</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user.html">User App</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user_views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_forms.html">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_models.html">Models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Admin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.admin.JWTAdminSite"><code class="docutils literal notranslate"><span class="pre">JWTAdminSite</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.admin.JWTLoginView"><code class="docutils literal notranslate"><span class="pre">JWTLoginView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.admin.UserAdmin"><code class="docutils literal notranslate"><span class="pre">UserAdmin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.admin.UserChangeForm"><code class="docutils literal notranslate"><span class="pre">UserChangeForm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.admin.UserCreationForm"><code class="docutils literal notranslate"><span class="pre">UserCreationForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_jwt.html">JWT backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../catalogapp/catalog.html">Catalog App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orderapp/order.html">Order App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cartapp/cart.html">Cart App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apiapp/api.html">API App</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="user.html">User App</a><ul>
+      <li>Previous: <a href="user_models.html" title="previous chapter">Models</a></li>
+      <li>Next: <a href="user_jwt.html" title="next chapter">JWT backend</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Dragon066.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/userapp/user_admin.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
