@@ -16,6 +16,8 @@ django-mathfilters = "^1.0.0"
 drf-yasg = "^1.21.7"
 pytest = "^8.3.2"
 setuptools = "^72.1.0"
+sphinx = "^8.0.2"
+sphinxcontrib-django = "^2.5"
 
 
 [tool.poetry.group.dev.dependencies]
