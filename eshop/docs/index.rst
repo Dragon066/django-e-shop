@@ -14,6 +14,7 @@ See `Github Page <https://github.com/Dragon066/django-e-shop/>`_ for details.
    :maxdepth: 3
    :caption: Contents:
 
-   ./user.rst
-   ./order.rst
+   ./userapp/user.rst
+   ./orderapp/order.rst
+   ./cartapp/cart.rst
 
