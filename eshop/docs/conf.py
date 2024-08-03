@@ -19,6 +19,7 @@ author = "Dragon066"
 extensions = [
     "sphinxcontrib_django",
     "sphinx.ext.autodoc",
+    "sphinx.ext.githubpages",
 ]
 
 templates_path = ["_templates"]
