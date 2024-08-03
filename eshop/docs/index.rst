@@ -17,4 +17,5 @@ See `Github Page <https://github.com/Dragon066/django-e-shop/>`_ for details.
    ./catalogapp/catalog.rst
    ./orderapp/order.rst
    ./cartapp/cart.rst
+   ./apiapp/api.rst
 
