@@ -4,6 +4,10 @@ from user.models import User
 
 
 class Cart(models.Model):
+    """
+    Model with a list of products in each user's carts.
+    """
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="Пользователь"
     )

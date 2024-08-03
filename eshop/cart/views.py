@@ -10,6 +10,14 @@ from .models import Cart
 
 
 class CartView(LoginRequiredMixin, ListView):
+    """
+    View for displaying and managing the user's shopping cart.
+
+    Displays a list of products in the cart along with their quantities and total price.
+
+    Login required.
+    """
+
     queryset = Cart.objects.all()
     template_name = "cart.html"
 
@@ -30,6 +38,13 @@ class CartView(LoginRequiredMixin, ListView):
 
 
 class CartFormView(LoginRequiredMixin, FormView):
+    """
+    View for adding, updating or deleting items
+    in the user's shopping cart.
+
+    Login required.
+    """
+
     form_class = CartForm
     template_name = "cart_detail.html"
     success_url = "/catalog/"
@@ -51,6 +66,14 @@ class CartFormView(LoginRequiredMixin, FormView):
         return initial
 
     def post(self, request, *args, **kwargs):
+        """
+        Process the form data and handle the cart operations.
+
+        If the "delete_cart" button is clicked, delete the item
+        from the cart.
+        If the "update_cart" button is clicked, update
+        the quantity of the item in the cart.
+        """
         form = self.get_form()
         if "delete_cart" in request.POST:
             cart = Cart.objects.filter(
@@ -108,7 +131,18 @@ class CartFormView(LoginRequiredMixin, FormView):
 
 
 class CartDeleteView(LoginRequiredMixin, View):
+    """
+    View for deleting items from the user's shopping cart.
+
+    Only handles post request without any rendering.
+
+    Login required.
+    """
+
     def post(self, request, *args, **kwargs):
+        """
+        Deletes the product from the user's shopping cart.
+        """
         cart = Cart.objects.filter(
             user=self.request.user, product__id=kwargs.get("pk")
         ).first()
