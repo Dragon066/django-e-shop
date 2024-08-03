@@ -16,15 +16,57 @@ from .models import User
 
 
 class ProfileView(LoginRequiredMixin, TemplateView):
+    """
+    A profile template view.
+
+    Displays a user's profile page using template in this class
+    and request.user instance as context data.
+
+    Login required.
+
+    Attributes:
+        template_name: The name of the template to render
+        for the profile page.
+    """
+
     template_name = "user_profile.html"
 
 
 class LoginFormView(FormView):
+    """
+    A view for handling user login.
+
+    This view processes a POST request containing user credentials.
+    If the credentials are valid, it generates JWT tokens for the user,
+    logs the user in, and redirects them to their profile page.
+
+    Attributes:
+        template_name: The name of the template to render
+        for the login page.
+
+        form_class: The form class to use for the login form.
+
+        success_url: The URL to redirect to after a successful login.
+    """
+
     template_name = "registration/login.html"
     form_class = LoginForm
     success_url = "/accounts/profile/"
 
     def post(self, request, *args, **kwargs):
+        """
+        Handles a POST request for login.
+
+        Args:
+            request: The HTTP request object.
+
+        Returns:
+            HttpResponseRedirect: If the user is successfully logged in,
+            redirects to the profile page.
+
+            LoginForm: If the user credentials are invalid, returns
+            the login form with error messages.
+        """
         form = self.get_form()
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -45,11 +87,42 @@ class LoginFormView(FormView):
 
 
 class RegistrationFormView(FormView):
+    """
+    A view for handling user registration.
+
+    This view processes a POST request containing
+    user registration data.
+    If the registration data is valid, it creates a new user and
+    generates JWT tokens for the user,
+    logs the user in, and redirects them to their profile page.
+
+    Attributes:
+        template_name: The name of the template to render
+        for the login page.
+
+        form_class: The form class to use for the login form.
+
+        success_url: The URL to redirect to after a successful login.
+    """
+
     template_name = "registration/registration.html"
     form_class = RegistrationForm
     success_url = "/accounts/profile/"
 
     def post(self, request, *args, **kwargs):
+        """
+        Handles a POST request for registration.
+
+        Args:
+            request: The HTTP request object.
+
+        Returns:
+            HttpResponseRedirect: If the user is successfully logged in,
+            redirects to the profile page with JWT tokens.
+
+            RegistrationForm: If the user credentials are invalid,
+            returns the login form with error messages.
+        """
         form = self.get_form()
         email = request.POST.get("email")
         password1 = request.POST.get("password1")
@@ -82,7 +155,25 @@ class RegistrationFormView(FormView):
 
 
 class LogoutView(View):
+    """
+    A view for handling user logout.
+
+    This view processes a POST request for logout.
+    If the user is successfully logged out, it clears the JWT tokens
+    and redirects them to the root URL.
+    """
+
     def post(self, request, *args, **kwargs):
+        """
+        Handles a POST request for logout.
+
+        Args:
+            request: The HTTP request object.
+
+        Returns:
+            HttpResponseRedirect: Redirects to the root URL with cleared
+            JWT tokens.
+        """
         response = clear_tokens(HttpResponseRedirect("/"))
 
         logging.info(f'User "{request.user.email}" logged out successfully')
