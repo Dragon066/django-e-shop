@@ -5,6 +5,11 @@ from user.models import User
 
 
 class Order(models.Model):
+    """
+    Model representing an order instance.
+    Doesn't contain a list of products.
+    """
+
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="Пользователь"
@@ -31,6 +36,10 @@ class Order(models.Model):
 
 
 class OrderDetails(models.Model):
+    """
+    Model representing a product in some order.
+    """
+
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE, verbose_name="Заказ #"
     )

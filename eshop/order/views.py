@@ -11,6 +11,14 @@ from .models import Order, OrderDetails
 
 
 class MyOrdersView(LoginRequiredMixin, ListView):
+    """
+    A list of user's orders view.
+
+    Displays a list of user's orders, the total amount of each order.
+
+    Login required.
+    """
+
     queryset = Order.objects.all()
     template_name = "my_orders.html"
     paginate_by = 10
@@ -20,6 +28,15 @@ class MyOrdersView(LoginRequiredMixin, ListView):
 
 
 class OrderCreateView(LoginRequiredMixin, FormView):
+    """
+    An order creation form view.
+
+    Displays an order creation form and creates a new order
+    if form is valid.
+
+    Login required.
+    """
+
     template_name = "order_create.html"
     form_class = OrderForm
     success_url = "/order/my_orders/"
@@ -34,6 +51,13 @@ class OrderCreateView(LoginRequiredMixin, FormView):
 
     @transaction.atomic
     def form_valid(self, form):
+        """
+        Custom form validation function.
+
+        Raises:
+            BadRequest: If one of the products in the cart
+            isn't available an error is thrown.
+        """
         products = Cart.objects.filter(user=self.request.user)
         summ = sum([item.product.price * item.quantity for item in products])
         order = Order.objects.create(
@@ -70,6 +94,12 @@ class OrderCreateView(LoginRequiredMixin, FormView):
 
 
 class OrderDetailView(LoginRequiredMixin, TemplateView):
+    """
+    A detailed view of a specific user's order.
+
+    Login required.
+    """
+
     template_name = "order_detail.html"
 
     def get(self, request, pk):
@@ -85,6 +115,12 @@ class OrderDetailView(LoginRequiredMixin, TemplateView):
 
 
 class OrderProcessView(LoginRequiredMixin, ListView):
+    """
+    A list of user's products orders from other users.
+
+    Login required.
+    """
+
     queryset = OrderDetails.objects.all().select_related("product")
     template_name = "order_process.html"
     paginate_by = 5
@@ -96,6 +132,14 @@ class OrderProcessView(LoginRequiredMixin, ListView):
 
 
 class OrderProcessDetailView(LoginRequiredMixin, UpdateView):
+    """
+    An order status update view.
+
+    Displays an order status update form and updates an order status.
+
+    Login required.
+    """
+
     model = OrderDetails
     template_name = "order_process_detail.html"
     fields = ["status"]
