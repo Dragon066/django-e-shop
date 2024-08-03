@@ -118,3 +118,5 @@ ENV/
 # Sphinx 
 
 doctrees/
+docs/*
+!docs/_build/
