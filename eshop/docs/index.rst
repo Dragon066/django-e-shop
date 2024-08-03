@@ -15,4 +15,5 @@ See `Github Page <https://github.com/Dragon066/django-e-shop/>`_ for details.
    :caption: Contents:
 
    ./user.rst
+   ./order.rst
 
