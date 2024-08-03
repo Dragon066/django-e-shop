@@ -8,6 +8,12 @@ from .serializers import ProductEditSerializer, ProductSerializer
 
 
 class ProductModelViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    ViewSet for listing products.
+
+    This view only available in read mode.
+    """
+
     queryset = Product.objects.filter(available=True).prefetch_related(
         "category"
     )
@@ -15,6 +21,12 @@ class ProductModelViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class ProductModelEditViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing products.
+
+    Login with DRF JWT tokens required.
+    """
+
     serializer_class = ProductEditSerializer
     permission_classes = [IsAuthenticated]
 
