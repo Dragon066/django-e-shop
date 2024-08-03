@@ -14,7 +14,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="User Views" href="user.html" />
+    <link rel="next" title="User App" href="userapp/user.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,13 +37,113 @@
 <p>A small documentation for Django project <code class="docutils literal notranslate"><span class="pre">django-e-shop</span></code>.
 See <a class="reference external" href="https://github.com/Dragon066/django-e-shop/">Github Page</a> for details.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user.html">User Views</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user.html#user.views.LoginFormView"><code class="docutils literal notranslate"><span class="pre">LoginFormView</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user.html#user.views.LogoutView"><code class="docutils literal notranslate"><span class="pre">LogoutView</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user.html#user.views.ProfileView"><code class="docutils literal notranslate"><span class="pre">ProfileView</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="user.html#user.views.RegistrationFormView"><code class="docutils literal notranslate"><span class="pre">RegistrationFormView</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp/user.html">User App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="userapp/user_views.html">Views</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_views.html#user.views.LoginFormView"><code class="docutils literal notranslate"><span class="pre">LoginFormView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_views.html#user.views.LogoutView"><code class="docutils literal notranslate"><span class="pre">LogoutView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_views.html#user.views.ProfileView"><code class="docutils literal notranslate"><span class="pre">ProfileView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_views.html#user.views.RegistrationFormView"><code class="docutils literal notranslate"><span class="pre">RegistrationFormView</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userapp/user_forms.html">Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_forms.html#user.forms.LoginForm"><code class="docutils literal notranslate"><span class="pre">LoginForm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_forms.html#user.forms.RegistrationForm"><code class="docutils literal notranslate"><span class="pre">RegistrationForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userapp/user_models.html">Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_models.html#user.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_models.html#user.models.UserManager"><code class="docutils literal notranslate"><span class="pre">UserManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userapp/user_admin.html">Admin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_admin.html#user.admin.JWTAdminSite"><code class="docutils literal notranslate"><span class="pre">JWTAdminSite</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_admin.html#user.admin.JWTLoginView"><code class="docutils literal notranslate"><span class="pre">JWTLoginView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_admin.html#user.admin.UserAdmin"><code class="docutils literal notranslate"><span class="pre">UserAdmin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_admin.html#user.admin.UserChangeForm"><code class="docutils literal notranslate"><span class="pre">UserChangeForm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_admin.html#user.admin.UserCreationForm"><code class="docutils literal notranslate"><span class="pre">UserCreationForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="userapp/user_jwt.html">JWT backend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_jwt.html#user.jwt.clear_tokens"><code class="docutils literal notranslate"><span class="pre">clear_tokens()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_jwt.html#user.jwt.get_access_token"><code class="docutils literal notranslate"><span class="pre">get_access_token()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_jwt.html#user.jwt.get_refresh_token"><code class="docutils literal notranslate"><span class="pre">get_refresh_token()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_jwt.html#user.jwt.tokens_to_response"><code class="docutils literal notranslate"><span class="pre">tokens_to_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="userapp/user_jwt.html#user.middleware.JWTAuthenticationMiddleware"><code class="docutils literal notranslate"><span class="pre">JWTAuthenticationMiddleware</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="catalogapp/catalog.html">Catalog App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="catalogapp/catalog_views.html">Views</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ContactsView"><code class="docutils literal notranslate"><span class="pre">ContactsView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ProductDetailView"><code class="docutils literal notranslate"><span class="pre">ProductDetailView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ProductFormView"><code class="docutils literal notranslate"><span class="pre">ProductFormView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ProductListView"><code class="docutils literal notranslate"><span class="pre">ProductListView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ProductUpdateView"><code class="docutils literal notranslate"><span class="pre">ProductUpdateView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_views.html#catalog.views.ProductUserListView"><code class="docutils literal notranslate"><span class="pre">ProductUserListView</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="catalogapp/catalog_forms.html">Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_forms.html#catalog.forms.ProductForm"><code class="docutils literal notranslate"><span class="pre">ProductForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="catalogapp/catalog_models.html">Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_models.html#catalog.models.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalogapp/catalog_models.html#catalog.models.ProductCategory"><code class="docutils literal notranslate"><span class="pre">ProductCategory</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="orderapp/order.html">Order App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="orderapp/order_views.html">Views</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_views.html#order.views.MyOrdersView"><code class="docutils literal notranslate"><span class="pre">MyOrdersView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_views.html#order.views.OrderCreateView"><code class="docutils literal notranslate"><span class="pre">OrderCreateView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_views.html#order.views.OrderDetailView"><code class="docutils literal notranslate"><span class="pre">OrderDetailView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_views.html#order.views.OrderProcessDetailView"><code class="docutils literal notranslate"><span class="pre">OrderProcessDetailView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_views.html#order.views.OrderProcessView"><code class="docutils literal notranslate"><span class="pre">OrderProcessView</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="orderapp/order_forms.html">Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_forms.html#order.forms.OrderForm"><code class="docutils literal notranslate"><span class="pre">OrderForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="orderapp/order_models.html">Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_models.html#order.models.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="orderapp/order_models.html#order.models.OrderDetails"><code class="docutils literal notranslate"><span class="pre">OrderDetails</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cartapp/cart.html">Cart App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cartapp/cart_views.html">Views</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cartapp/cart_views.html#cart.views.CartDeleteView"><code class="docutils literal notranslate"><span class="pre">CartDeleteView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cartapp/cart_views.html#cart.views.CartFormView"><code class="docutils literal notranslate"><span class="pre">CartFormView</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cartapp/cart_views.html#cart.views.CartView"><code class="docutils literal notranslate"><span class="pre">CartView</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cartapp/cart_forms.html">Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cartapp/cart_forms.html#cart.forms.CartForm"><code class="docutils literal notranslate"><span class="pre">CartForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cartapp/cart_models.html">Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cartapp/cart_models.html#cart.models.Cart"><code class="docutils literal notranslate"><span class="pre">Cart</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apiapp/api.html">API App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apiapp/api_views.html">Views</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiapp/api_views.html#api.views.ProductModelEditViewSet"><code class="docutils literal notranslate"><span class="pre">ProductModelEditViewSet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiapp/api_views.html#api.views.ProductModelViewSet"><code class="docutils literal notranslate"><span class="pre">ProductModelViewSet</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apiapp/api_serializers.html">Serializers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apiapp/api_serializers.html#api.serializers.ProductEditSerializer"><code class="docutils literal notranslate"><span class="pre">ProductEditSerializer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiapp/api_serializers.html#api.serializers.ProductSerializer"><code class="docutils literal notranslate"><span class="pre">ProductSerializer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiapp/api_serializers.html#api.serializers.UserSerializer"><code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -76,16 +176,19 @@ See <a class="reference external" href="https://github.com/Dragon066/django-e-sh
     </div>
 </search>
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user.html">User Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userapp/user.html">User App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="catalogapp/catalog.html">Catalog App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orderapp/order.html">Order App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cartapp/cart.html">Cart App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apiapp/api.html">API App</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="user.html" title="next chapter">User Views</a></li>
+      <li>Next: <a href="userapp/user.html" title="next chapter">User App</a></li>
   </ul></li>
 </ul>
 </div>

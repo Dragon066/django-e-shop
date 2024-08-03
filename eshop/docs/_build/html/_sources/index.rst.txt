@@ -11,8 +11,11 @@ See `Github Page <https://github.com/Dragon066/django-e-shop/>`_ for details.
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
 
-   ./user.rst
+   ./userapp/user.rst
+   ./catalogapp/catalog.rst
+   ./orderapp/order.rst
+   ./cartapp/cart.rst
+   ./apiapp/api.rst
 

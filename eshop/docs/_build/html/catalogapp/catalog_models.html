@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Models &#8212; Django-e-shop  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Order App" href="../orderapp/order.html" />
+    <link rel="prev" title="Forms" href="catalog_forms.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-catalog.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-catalog.models" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="catalog.models.Product">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catalog.models.</span></span><span class="sig-name descname"><span class="pre">Product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catalog.models.Product" title="Link to this definition">¶</a></dt>
+<dd><p>Model representing a product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.AutoField" title="(in Django v5.0)"><em>AutoField</em></a>) – Primary key: Id</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><em>CharField</em></a>) – Наименование</p></li>
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.TextField" title="(in Django v5.0)"><em>TextField</em></a>) – Описание</p></li>
+<li><p><strong>price</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(in Django v5.0)"><em>DecimalField</em></a>) – Цена</p></li>
+<li><p><strong>quantity</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.PositiveIntegerField" title="(in Django v5.0)"><em>PositiveIntegerField</em></a>) – Количество</p></li>
+<li><p><strong>available</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BooleanField" title="(in Django v5.0)"><em>BooleanField</em></a>) – Статус</p></li>
+<li><p><strong>picture</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ImageField" title="(in Django v5.0)"><em>ImageField</em></a>) – Фото</p></li>
+</ul>
+</dd>
+</dl>
+<p>Relationship fields:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference internal" href="#catalog.models.ProductCategory" title="catalog.models.ProductCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProductCategory</span></code></a>) – Категория (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code>)</p></li>
+<li><p><strong>owner</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference internal" href="../userapp/user_models.html#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – Владелец (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Reverse relationships:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cart</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="../cartapp/cart_models.html#cart.models.Cart" title="cart.models.Cart"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cart</span></code></a>) – All carts of this product (related name of <a class="reference internal" href="../cartapp/cart_models.html#cart.models.Cart.product" title="cart.models.Cart.product"><code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code></a>)</p></li>
+<li><p><strong>orderdetails</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="../orderapp/order_models.html#order.models.OrderDetails" title="order.models.OrderDetails"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderDetails</span></code></a>) – All order detailss of this product (related name of <a class="reference internal" href="../orderapp/order_models.html#order.models.OrderDetails.product" title="order.models.OrderDetails.product"><code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="catalog.models.Product.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#catalog.models.Product.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="catalog.models.Product.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#catalog.models.Product.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.available">
+<span class="sig-name descname"><span class="pre">available</span></span><a class="headerlink" href="#catalog.models.Product.available" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BooleanField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a></p>
+<p>Статус</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.cart_set">
+<span class="sig-name descname"><span class="pre">cart_set</span></span><a class="headerlink" href="#catalog.models.Product.cart_set" title="Link to this definition">¶</a></dt>
+<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="../cartapp/cart_models.html#cart.models.Cart" title="cart.models.Cart"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cart</span></code></a></p>
+<p>All carts of this product (related name of <a class="reference internal" href="../cartapp/cart_models.html#cart.models.Cart.product" title="cart.models.Cart.product"><code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#catalog.models.Product.category" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference internal" href="#catalog.models.ProductCategory" title="catalog.models.ProductCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProductCategory</span></code></a></p>
+<p>Категория (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><a class="headerlink" href="#catalog.models.Product.category_id" title="Link to this definition">¶</a></dt>
+<dd><p>Internal field, use <a class="reference internal" href="#catalog.models.Product.category" title="catalog.models.Product.category"><code class="xref py py-class docutils literal notranslate"><span class="pre">category</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#catalog.models.Product.description" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.TextField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextField</span></code></a></p>
+<p>Описание</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catalog.models.Product.get_absolute_url">
+<span class="sig-name descname"><span class="pre">get_absolute_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#catalog.models.Product.get_absolute_url" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#catalog.models.Product.id" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.AutoField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoField</span></code></a></p>
+<p>Primary key: Id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#catalog.models.Product.name" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
+<p>Наименование</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#catalog.models.Product.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.orderdetails_set">
+<span class="sig-name descname"><span class="pre">orderdetails_set</span></span><a class="headerlink" href="#catalog.models.Product.orderdetails_set" title="Link to this definition">¶</a></dt>
+<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="../orderapp/order_models.html#order.models.OrderDetails" title="order.models.OrderDetails"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderDetails</span></code></a></p>
+<p>All order detailss of this product (related name of <a class="reference internal" href="../orderapp/order_models.html#order.models.OrderDetails.product" title="order.models.OrderDetails.product"><code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.owner">
+<span class="sig-name descname"><span class="pre">owner</span></span><a class="headerlink" href="#catalog.models.Product.owner" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference internal" href="../userapp/user_models.html#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+<p>Владелец (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">product</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.owner_id">
+<span class="sig-name descname"><span class="pre">owner_id</span></span><a class="headerlink" href="#catalog.models.Product.owner_id" title="Link to this definition">¶</a></dt>
+<dd><p>Internal field, use <a class="reference internal" href="#catalog.models.Product.owner" title="catalog.models.Product.owner"><code class="xref py py-class docutils literal notranslate"><span class="pre">owner</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.picture">
+<span class="sig-name descname"><span class="pre">picture</span></span><a class="headerlink" href="#catalog.models.Product.picture" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ImageField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageField</span></code></a></p>
+<p>Фото</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#catalog.models.Product.price" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecimalField</span></code></a></p>
+<p>Цена</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.Product.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#catalog.models.Product.quantity" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.PositiveIntegerField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code></a></p>
+<p>Количество</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catalog.models.</span></span><span class="sig-name descname"><span class="pre">ProductCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catalog.models.ProductCategory" title="Link to this definition">¶</a></dt>
+<dd><p>Model representing a category of the products.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.0)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><em>CharField</em></a>) – Название</p></li>
+</ul>
+</dd>
+</dl>
+<p>Reverse relationships:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>product</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#catalog.models.Product" title="catalog.models.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">Product</span></code></a>) – All products of this product category (related name of <a class="reference internal" href="#catalog.models.Product.category" title="catalog.models.Product.category"><code class="xref py py-attr docutils literal notranslate"><span class="pre">category</span></code></a>)</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#catalog.models.ProductCategory.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#catalog.models.ProductCategory.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#catalog.models.ProductCategory.id" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
+<p>Primary key: ID</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#catalog.models.ProductCategory.name" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
+<p>Название</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#catalog.models.ProductCategory.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.models.ProductCategory.product_set">
+<span class="sig-name descname"><span class="pre">product_set</span></span><a class="headerlink" href="#catalog.models.ProductCategory.product_set" title="Link to this definition">¶</a></dt>
+<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#catalog.models.Product" title="catalog.models.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">Product</span></code></a></p>
+<p>All products of this product category (related name of <a class="reference internal" href="#catalog.models.Product.category" title="catalog.models.Product.category"><code class="xref py py-attr docutils literal notranslate"><span class="pre">category</span></code></a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Django-e-shop</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userapp/user.html">User App</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="catalog.html">Catalog App</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="catalog_views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog_forms.html">Forms</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#catalog.models.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog.models.ProductCategory"><code class="docutils literal notranslate"><span class="pre">ProductCategory</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../orderapp/order.html">Order App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cartapp/cart.html">Cart App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apiapp/api.html">API App</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="catalog.html">Catalog App</a><ul>
+      <li>Previous: <a href="catalog_forms.html" title="previous chapter">Forms</a></li>
+      <li>Next: <a href="../orderapp/order.html" title="next chapter">Order App</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Dragon066.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/catalogapp/catalog_models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
