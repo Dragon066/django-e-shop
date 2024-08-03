@@ -7,6 +7,10 @@ from django.db import models
 
 
 class UserManager(BaseUserManager):
+    """
+    Custom user manager with email as the unique identifier.
+    """
+
     def _create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError("Не указан E-mail")
@@ -17,9 +21,32 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, email, password=None, **extra_fields):
+        """
+        Creates and saves a User with given email and password.
+
+        Args:
+            email (str): E-mail address.
+
+            password (str, optional): Password. Defaults to None.
+
+        Returns:
+            User: a new User instance with given email and password.
+        """
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password=None, **extra_fields):
+        """
+        Creates and saves a superuser with given email and password.
+
+        Args:
+            email (str): E-mail address.
+
+            password (str, optional): Password. Defaults to None.
+
+        Returns:
+            User: a new User instance with given email and password
+            and superuser privileges.
+        """
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
 
@@ -27,6 +54,12 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    """
+    Custom user model.
+
+    E-mail is an unique identificator.
+    """
+
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(
         max_length=255, blank=True, verbose_name="Фамилия"

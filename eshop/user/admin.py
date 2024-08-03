@@ -13,7 +13,23 @@ from .models import User
 
 
 class JWTLoginView(LoginView):
+    """
+    Custom login view for JWT authentication.
+
+    Used for JWTAdminSite.
+    """
+
     def form_valid(self, form):
+        """
+        Return the response with JWT tokens.
+
+        Args:
+            form: A valid form object.
+
+        Returns:
+            HttpResponseRedirect: The response with JWT tokens,
+            redirects to success url.
+        """
         user = form.get_user()
         response = tokens_to_response(
             HttpResponseRedirect(self.get_success_url()),
@@ -25,6 +41,10 @@ class JWTLoginView(LoginView):
 
 
 class JWTAdminSite(AdminSite):
+    """
+    Custom admin site for JWT authentication.
+    """
+
     def login(self, request, extra_context=None):
         """
         Display the login form for the given HttpRequest.
@@ -68,7 +88,8 @@ admin_site = JWTAdminSite(name="JWTAdmin")
 
 
 class UserCreationForm(forms.ModelForm):
-    """A form for creating new users. Includes all the required
+    """
+    A form for creating new users. Includes all the required
     fields, plus a repeated password."""
 
     password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
@@ -96,7 +117,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
-    """A form for updating users. Includes all the fields on
+    """
+    A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
     password hash display field.
     """
@@ -119,13 +141,17 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UserAdmin(BaseUserAdmin):
+    """
+    Custom user admin for JWT authentication.
+    """
+
     form = UserChangeForm
     add_form = UserCreationForm
 
     list_display = ("email", "first_name", "last_name", "is_staff")
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Персональаня информация", {"fields": ("first_name", "last_name")}),
+        ("Персональная информация", {"fields": ("first_name", "last_name")}),
         ("Права", {"fields": ("is_staff",)}),
     )
 
