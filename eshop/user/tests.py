@@ -69,6 +69,7 @@ class AuthenticationViewTests(TestCase):
         factory = RequestFactory()
 
         request = factory.post(reverse("user:logout"))
+        request.user = self.user
 
         response = LogoutView.as_view()(request)
 

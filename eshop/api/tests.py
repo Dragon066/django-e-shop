@@ -127,7 +127,7 @@ class APUViewTest(TestCase):
         response = ProductModelEditViewSet.as_view({"put": "update"})(
             request, pk=1
         )
-        print(response.data)
+
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data["name"], "TestProduct2")
         self.assertEqual(response.data["description"], "Test2")
