@@ -1,3 +1,5 @@
+import logging
+
 from catalog.models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -56,6 +58,11 @@ class CartFormView(LoginRequiredMixin, FormView):
                 product__id=request.POST.get("product_id"),
             )
             cart.delete()
+
+            logging.info(
+                f'User "{self.request.user}" deleted product #{request.POST.get("product_id")} from the cart'
+            )
+
             return HttpResponseRedirect(self.get_success_url())
         if form.is_valid():
             product_id = request.POST.get("product_id")
@@ -75,6 +82,11 @@ class CartFormView(LoginRequiredMixin, FormView):
             product=product,
             defaults={"quantity": form.cleaned_data["quantity"]},
         )
+
+        logging.info(
+            f'User "{form.cleaned_data["user"]}" added {product} to the cart'
+        )
+
         return super().form_valid(form)
 
     def form_invalid(self, form, pk):
@@ -101,4 +113,9 @@ class CartDeleteView(LoginRequiredMixin, View):
             user=self.request.user, product__id=kwargs.get("pk")
         ).first()
         cart.delete()
+
+        logging.info(
+            f'User "{self.request.user}" deleted product #{kwargs.get("pk")} from the cart'
+        )
+
         return HttpResponseRedirect("/cart/")

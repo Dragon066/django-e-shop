@@ -1,3 +1,5 @@
+import logging
+
 from catalog.models import Product
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
@@ -22,4 +24,5 @@ class ProductModelEditViewSet(viewsets.ModelViewSet):
         ).prefetch_related("category")
 
     def perform_create(self, serializer):
+        logging.info(f'User "{self.request.user}" created product via API')
         serializer.save(owner=self.request.user)

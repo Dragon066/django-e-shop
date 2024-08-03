@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -35,6 +37,8 @@ class LoginFormView(FormView):
                 get_refresh_token(user),
             )
 
+            logging.info(f'User "{user.email}" logged in successfully')
+
             return response
         else:
             return self.form_invalid(form)
@@ -63,6 +67,8 @@ class RegistrationFormView(FormView):
         user.set_password(password1)
         user.save()
 
+        logging.info(f'User "{user.email}" registered successfully')
+
         if user is not None:
             response = tokens_to_response(
                 HttpResponseRedirect(self.get_success_url()),
@@ -78,5 +84,7 @@ class RegistrationFormView(FormView):
 class LogoutView(View):
     def post(self, request, *args, **kwargs):
         response = clear_tokens(HttpResponseRedirect("/"))
+
+        logging.info(f'User "{request.user.email}" logged out successfully')
 
         return response

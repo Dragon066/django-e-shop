@@ -1,3 +1,4 @@
+import logging
 
 from cart.models import Cart
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -81,6 +82,9 @@ class ProductFormView(LoginRequiredMixin, FormView):
         temp = form.save(commit=False)
         temp.owner = self.request.user
         temp.save()
+
+        logging.info(f'User "{self.request.user}" created product {temp}')
+
         return super().form_valid(form)
 
 

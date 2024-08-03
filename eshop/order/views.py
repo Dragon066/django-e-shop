@@ -1,3 +1,5 @@
+import logging
+
 from cart.models import Cart
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import BadRequest
@@ -49,6 +51,9 @@ class OrderCreateView(LoginRequiredMixin, FormView):
             )
             item.delete()
             if not item.product.available:
+                logging.warning(
+                    f'Product {item.product} unavailable, order by "{self.request.user}" cancelled'
+                )
                 raise BadRequest(
                     f"Один из товаров ({item.product}) недоступен"
                 )
@@ -56,6 +61,11 @@ class OrderCreateView(LoginRequiredMixin, FormView):
             if item.product.quantity == 0:
                 item.product.available = False
             item.product.save()
+
+        logging.info(
+            f'Order #{order.id} successfully created by "{self.request.user}"'
+        )
+
         return super().form_valid(form)
 
 

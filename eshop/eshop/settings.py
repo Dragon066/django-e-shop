@@ -151,3 +151,28 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGOUT_REDIRECT_URL = "/catalog/"
 
 LOGIN_URL = "/accounts/login/"
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR / "django.log",
+            "formatter": "verbose",
+            "encoding": "utf8",
+        }
+    },
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} | {levelname} | {message}",
+            "style": "{",
+        }
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": ["file"],
+    },
+}
